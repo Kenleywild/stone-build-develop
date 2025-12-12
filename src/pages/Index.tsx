@@ -1,12 +1,11 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import TrustSignals from "@/components/TrustSignals";
-import Services from "@/components/Services";
-import FeaturedProjects from "@/components/FeaturedProjects";
-import Process from "@/components/Process";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import Testimonials from "@/components/Testimonials";
-import CallToAction from "@/components/CallToAction";
+import IntroSection from "@/components/IntroSection";
+import ServiceCards from "@/components/ServiceCards";
+import CredentialsSection from "@/components/CredentialsSection";
+import ServiceSplits from "@/components/ServiceSplits";
+import FullWidthImage from "@/components/FullWidthImage";
+import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -15,13 +14,12 @@ const Index = () => {
       <Navigation />
       <main>
         <Hero />
-        <TrustSignals />
-        <Services />
-        <FeaturedProjects />
-        <Process />
-        <WhyChooseUs />
-        <Testimonials />
-        <CallToAction />
+        <IntroSection />
+        <ServiceCards />
+        <CredentialsSection />
+        <ServiceSplits />
+        <FullWidthImage />
+        <ContactForm />
       </main>
       <Footer />
     </div>
