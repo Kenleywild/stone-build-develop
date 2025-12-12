@@ -6,7 +6,7 @@ const CredentialsSection = () => {
       <div className="container-narrow text-center px-6 md:px-8">
         {/* Company Logo */}
         <div className="mb-8 md:mb-10">
-          <img src={logo} alt="Stone Development Inc" className="h-10 md:h-14 mx-auto invert opacity-80" />
+          <img src={logo} alt="Stone Development Inc" className="h-10 md:h-14 mx-auto opacity-90" />
         </div>
 
         <h2 className="font-serif text-2xl md:text-3xl lg:text-5xl text-cream font-medium mb-3 md:mb-4 italic">
