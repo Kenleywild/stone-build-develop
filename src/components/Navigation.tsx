@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,9 +33,7 @@ const Navigation = () => {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <span className="font-sans text-sm md:text-base font-semibold tracking-widest uppercase text-foreground">
-              Stone Development
-            </span>
+            <img src={logo} alt="Stone Development Inc" className="h-8 md:h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
