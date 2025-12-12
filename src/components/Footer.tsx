@@ -42,6 +42,11 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               <li>
+                <span className="text-sm text-cream/50">
+                  1 Jenner Suite 150, Irvine, CA 92618
+                </span>
+              </li>
+              <li>
                 <a
                   href="tel:+15551234567"
                   className="text-sm text-cream/50 hover:text-cream transition-colors"
@@ -67,7 +72,7 @@ const Footer = () => {
             © {currentYear} Stone Development Inc. All rights reserved.
           </p>
           <p className="text-xs text-cream/40">
-            License #123456789 | Licensed, Bonded & Insured
+            License #1146382 | Licensed, Bonded & Insured
           </p>
         </div>
       </div>
