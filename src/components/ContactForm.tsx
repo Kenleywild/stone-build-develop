@@ -110,10 +110,10 @@ const ContactForm = () => {
     "border-0 border-b border-transparent bg-transparent px-0 text-sm md:text-base focus-visible:ring-0 focus-visible:border-foreground rounded-none h-10 md:h-11";
 
   return (
-    <section id="contact" className="py-16 md:py-24 lg:py-32 bg-background">
-      <div className="container-narrow px-5 md:px-8">
+    <section id="contact" className="py-16 md:py-24 lg:py-32 bg-card">
+      <div className="max-w-xl mx-auto px-5 md:px-8">
         {/* Header */}
-        <div className="text-center mb-10 md:mb-16">
+        <div className="text-center mb-10 md:mb-12">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-foreground mb-3 md:mb-4">
             Let's Transform <span className="font-medium">Your</span>
             <br />
@@ -129,7 +129,7 @@ const ContactForm = () => {
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-5 md:space-y-8">
+        <form onSubmit={handleSubmit} className="bg-background border border-border rounded-lg p-6 md:p-10 space-y-5 md:space-y-6 shadow-sm">
           {/* Name */}
           <div className="border-b border-border pb-4 md:pb-6">
             <label className="block text-sm md:text-base font-medium text-foreground mb-1.5 md:mb-2">
