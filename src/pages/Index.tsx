@@ -1,6 +1,5 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import IntroSection from "@/components/IntroSection";
 import ServiceCards from "@/components/ServiceCards";
 import CredentialsSection from "@/components/CredentialsSection";
 import ServiceSplits from "@/components/ServiceSplits";
@@ -14,7 +13,6 @@ const Index = () => {
       <Navigation />
       <main>
         <Hero />
-        <IntroSection />
         <ServiceCards />
         <CredentialsSection />
         <ServiceSplits />
