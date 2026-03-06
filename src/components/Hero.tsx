@@ -40,7 +40,7 @@ const Hero = () => {
             {/* Company Logo */}
             <img src={logo} alt="Stone Development Inc" className="h-12 mx-auto mb-10 brightness-0 invert" />
 
-            <a href="tel:+19495086763">
+            <a href="#contact">
               <Button variant="outline" size="lg" className="px-8 bg-foreground text-background border-foreground hover:bg-foreground/90 hover:text-background">
                 Book a Consultation
               </Button>
