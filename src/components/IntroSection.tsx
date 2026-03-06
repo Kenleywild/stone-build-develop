@@ -23,9 +23,11 @@ const IntroSection = () => {
         {/* Company Logo */}
         <img src={logo} alt="Stone Development Inc" className="h-12 mx-auto mb-10" />
 
-        <Button variant="outline" size="lg" className="px-8">
-          Book a Consultation
-        </Button>
+        <a href="tel:+19495086763">
+          <Button variant="outline" size="lg" className="px-8">
+            Book a Consultation
+          </Button>
+        </a>
       </div>
     </section>
   );
