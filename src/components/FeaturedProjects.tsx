@@ -4,6 +4,7 @@ import projectKitchen from "@/assets/project-kitchen.jpg";
 import projectBathroom from "@/assets/project-bathroom.jpg";
 import projectAddition from "@/assets/project-addition.jpg";
 import projectAdu from "@/assets/project-adu.jpg";
+import projectExterior from "@/assets/project-exterior.jpg";
 
 const projects = [
   {
@@ -16,6 +17,12 @@ const projects = [
     image: projectBathroom,
     title: "Spa-Inspired Bathroom",
     category: "Bathroom Remodeling",
+    size: "medium",
+  },
+  {
+    image: projectExterior,
+    title: "Exterior Home Renovation",
+    category: "Full Home Remodeling",
     size: "medium",
   },
   {
