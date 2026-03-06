@@ -31,6 +31,7 @@ const projects = [
     title: "Exterior Renovation — After",
     category: "Full Home Remodeling",
     size: "medium",
+  },
   {
     image: projectAddition,
     title: "Contemporary Home Addition",
