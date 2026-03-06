@@ -40,6 +40,12 @@ const projects = [
     size: "medium",
   },
   {
+    image: projectInteriorProgress,
+    title: "Full Home Renovation",
+    category: "Interior Remodeling",
+    size: "large",
+  },
+  {
     image: projectAdu,
     title: "Backyard ADU",
     category: "Accessory Dwelling Unit",
