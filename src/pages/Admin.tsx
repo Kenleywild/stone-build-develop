@@ -63,31 +63,31 @@ const Admin = () => {
   return (
     <div className="min-h-screen bg-muted/30">
       {/* Header */}
-      <header className="bg-background border-b border-border px-6 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
+      <header className="bg-background border-b border-border px-4 md:px-6 py-3 md:py-4 sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between">
             <Link to="/">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Site
+              <Button variant="ghost" size="sm" className="px-2 md:px-3">
+                <ArrowLeft className="h-4 w-4 md:mr-2" />
+                <span className="hidden md:inline">Back to Site</span>
               </Button>
             </Link>
-            <div>
-              <h1 className="text-xl font-semibold text-foreground">Lead Dashboard</h1>
-              <p className="text-sm text-muted-foreground">
-                {leads.length} total lead{leads.length !== 1 ? "s" : ""}
+            <div className="text-center flex-1 mx-2">
+              <h1 className="text-base md:text-xl font-semibold text-foreground">Lead Dashboard</h1>
+              <p className="text-xs md:text-sm text-muted-foreground">
+                {leads.length} lead{leads.length !== 1 ? "s" : ""}
               </p>
             </div>
+            <Button variant="outline" size="sm" onClick={fetchLeads} disabled={loading} className="px-2 md:px-3">
+              <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
+              <span className="hidden md:inline ml-2">Refresh</span>
+            </Button>
           </div>
-          <Button variant="outline" size="sm" onClick={fetchLeads} disabled={loading}>
-            <RefreshCw className={`h-4 w-4 mr-2 ${loading ? "animate-spin" : ""}`} />
-            Refresh
-          </Button>
         </div>
       </header>
 
       {/* Content */}
-      <main className="max-w-7xl mx-auto px-6 py-8">
+      <main className="max-w-7xl mx-auto px-3 md:px-6 py-4 md:py-8">
         {loading && leads.length === 0 ? (
           <div className="text-center py-20 text-muted-foreground">Loading leads...</div>
         ) : leads.length === 0 ? (
@@ -98,79 +98,78 @@ const Admin = () => {
             </p>
           </div>
         ) : (
-          <div className="grid gap-4">
+          <div className="grid gap-3 md:gap-4">
             {leads.map((lead) => (
               <div
                 key={lead.id}
-                className="bg-background rounded-lg border border-border p-5 md:p-6"
+                className="bg-background rounded-lg border border-border p-4 md:p-6"
               >
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
-                  {/* Lead info */}
-                  <div className="flex-1 space-y-2">
-                    <div className="flex items-center gap-3 flex-wrap">
-                      <h3 className="font-semibold text-foreground text-lg">{lead.name}</h3>
-                      <span
-                        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${statusColor(lead.status)}`}
-                      >
-                        {lead.status}
-                      </span>
-                    </div>
+                {/* Name + Status */}
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <h3 className="font-semibold text-foreground text-base md:text-lg truncate">{lead.name}</h3>
+                  <span
+                    className={`shrink-0 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${statusColor(lead.status)}`}
+                  >
+                    {lead.status}
+                  </span>
+                </div>
 
-                    <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-                      <a
-                        href={`mailto:${encodeURIComponent(lead.email)}`}
-                        className="flex items-center gap-1.5 hover:text-foreground transition-colors"
-                      >
-                        <Mail className="h-3.5 w-3.5" />
-                        {lead.email}
-                      </a>
-                      <a
-                        href={`tel:${lead.phone}`}
-                        className="flex items-center gap-1.5 hover:text-foreground transition-colors"
-                      >
-                        <Phone className="h-3.5 w-3.5" />
-                        {lead.phone}
-                      </a>
-                    </div>
+                {/* Quick actions - call/email */}
+                <div className="flex gap-3 mb-3">
+                  <a
+                    href={`tel:${lead.phone}`}
+                    className="flex items-center gap-1.5 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <Phone className="h-3.5 w-3.5" />
+                    <span className="truncate">{lead.phone}</span>
+                  </a>
+                  <a
+                    href={`mailto:${encodeURIComponent(lead.email)}`}
+                    className="flex items-center gap-1.5 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <Mail className="h-3.5 w-3.5" />
+                    <span className="truncate">{lead.email}</span>
+                  </a>
+                </div>
 
-                    {(lead.project_type || lead.budget) && (
-                      <div className="flex gap-2 flex-wrap">
-                        {lead.project_type && (
-                          <Badge variant="secondary">{lead.project_type}</Badge>
-                        )}
-                        {lead.budget && <Badge variant="outline">{lead.budget}</Badge>}
-                      </div>
+                {/* Badges */}
+                {(lead.project_type || lead.budget) && (
+                  <div className="flex gap-1.5 flex-wrap mb-3">
+                    {lead.project_type && (
+                      <Badge variant="secondary" className="text-xs">{lead.project_type}</Badge>
                     )}
-
-                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
-                      {lead.message}
-                    </p>
-
-                    <p className="text-xs text-muted-foreground/60">
-                      {new Date(lead.created_at).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                        hour: "numeric",
-                        minute: "2-digit",
-                      })}
-                    </p>
+                    {lead.budget && <Badge variant="outline" className="text-xs">{lead.budget}</Badge>}
                   </div>
+                )}
 
-                  {/* Status actions */}
-                  <div className="flex gap-2 flex-wrap md:flex-col">
-                    {["new", "contacted", "qualified", "closed"].map((s) => (
-                      <Button
-                        key={s}
-                        variant={lead.status === s ? "default" : "outline"}
-                        size="sm"
-                        className="text-xs capitalize"
-                        onClick={() => updateStatus(lead.id, s)}
-                      >
-                        {s}
-                      </Button>
-                    ))}
-                  </div>
+                {/* Message */}
+                <p className="text-xs md:text-sm text-muted-foreground leading-relaxed mb-3">
+                  {lead.message}
+                </p>
+
+                {/* Date */}
+                <p className="text-xs text-muted-foreground/60 mb-3">
+                  {new Date(lead.created_at).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    hour: "numeric",
+                    minute: "2-digit",
+                  })}
+                </p>
+
+                {/* Status buttons */}
+                <div className="flex gap-1.5 flex-wrap border-t border-border pt-3">
+                  {["new", "contacted", "qualified", "closed"].map((s) => (
+                    <Button
+                      key={s}
+                      variant={lead.status === s ? "default" : "outline"}
+                      size="sm"
+                      className="text-xs capitalize h-7 px-2.5 md:h-8 md:px-3"
+                      onClick={() => updateStatus(lead.id, s)}
+                    >
+                      {s}
+                    </Button>
+                  ))}
                 </div>
               </div>
             ))}
