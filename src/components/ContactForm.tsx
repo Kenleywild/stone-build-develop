@@ -41,7 +41,7 @@ const ContactForm = () => {
             border: "0px",
             margin: "0 auto",
             width: "100%",
-            minHeight: "600px",
+            minHeight: "900px",
           }}
           title="Contact Form"
         />
